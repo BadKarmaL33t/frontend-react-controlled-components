@@ -5,11 +5,11 @@ function App() {
     const [nameValue, setNameValue] = useState('');
     const [ageValue, setAgeValue] = useState(0);
     const [remarksValue, setRemarksValue] = useState('');
-    const [newsLetterValue, toggleNewsLetterValue] = useState(false);
+    const [newsLetterChecked, toggleNewsLetterChecked] = useState(false);
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log(nameValue, ageValue, remarksValue, newsLetterValue);
+        console.log(nameValue, ageValue, remarksValue, newsLetterChecked);
     }
 
     return (
@@ -32,7 +32,7 @@ function App() {
                            id="form-age"
                            name="age"
                            value={ageValue}
-                           onChange={(e) => setAgeValue(e.target.value)}
+                           onChange={(e) => setAgeValue(parseInt(e.target.value))}
                     />
                 </label>
             </fieldset>
@@ -55,8 +55,8 @@ function App() {
                     <input type="checkbox"
                            id="form-newsletter"
                            name="toggle-newsletter"
-                           value={newsLetterValue}
-                           onChange={(e) => toggleNewsLetterValue(!newsLetterValue)}
+                           checked={newsLetterChecked}
+                           onChange={() => toggleNewsLetterChecked(!newsLetterChecked)}
                     />
                     Ik schrijf me in voor de nieuwsbrief!
                 </label>
